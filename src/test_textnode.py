@@ -59,5 +59,6 @@ class TestTextNode(unittest.TestCase):
             {"src": "https://www.boot.dev", "alt": "This is an image"},
         )
 
+
 if __name__ == "__main__":
     unittest.main()
