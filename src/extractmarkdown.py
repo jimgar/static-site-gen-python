@@ -12,7 +12,7 @@ def extract_markdown_images(text):
 
 
 def extract_markdown_links(text):
-    pattern = r"\[(.*?)\]\((.*?)\)"
+    pattern = r"(?<!!)\[(.*?)\]\((.*?)\)"
     matches = re.findall(pattern, text)
     if not matches:
         raise ValueError(

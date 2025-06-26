@@ -75,7 +75,7 @@ class TestExtractMarkdownLinks(unittest.TestCase):
 
     def test_multiple_links_in_text(self):
         res = extract_markdown_links(
-            "Blah blah words ![link text 1](https://internet.com) and more stuff with ![some other link](https://dogs.cats.cool) here"
+            "Blah blah words [link text 1](https://internet.com) and more stuff with [some other link](https://dogs.cats.cool) here"
         )
         expt = [
             ("link text 1", "https://internet.com"),
