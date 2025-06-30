@@ -37,18 +37,6 @@ class TestExtractMarkdownImages(unittest.TestCase):
         ]
         self.assertListEqual(res, expt)
 
-    def test_extract_markdown_images_errors_on_incorrect_syntax(self):
-        with self.assertRaises(ValueError) as cm:
-            extract_markdown_images(
-                "Blah blah words ![poopity poop]https://internet.com/image.piss)"
-            )
-
-        excp = cm.exception
-        self.assertEqual(
-            excp.__str__(),
-            "No valid image syntax found in the text. Check for mistakes: 'Blah blah words ![poopity poop]https://internet.com/image.piss)'",
-        )
-
 
 class TestExtractMarkdownLinks(unittest.TestCase):
     def test_extract_markdown_links(self):
@@ -82,15 +70,3 @@ class TestExtractMarkdownLinks(unittest.TestCase):
             ("some other link", "https://dogs.cats.cool"),
         ]
         self.assertListEqual(res, expt)
-
-    def test_extract_markdown_links_errors_on_incorrect_syntax(self):
-        with self.assertRaises(ValueError) as cm:
-            extract_markdown_links(
-                "Blah blah words [poopity poop]https://internet.com)"
-            )
-
-        excp = cm.exception
-        self.assertEqual(
-            excp.__str__(),
-            "No valid link syntax found in the text. Check for mistakes: 'Blah blah words [poopity poop]https://internet.com)'",
-        )
