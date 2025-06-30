@@ -1,6 +1,6 @@
 from textnode import TextType, TextNode
 from htmlnode import LeafNode, ParentNode
-from splitnodes import split_nodes_delimiter
+from splitnodes import split_nodes_delimiter, split_nodes_image
 
 
 def main():
@@ -29,6 +29,32 @@ def main():
     new_nodes = split_nodes_delimiter([n1, n2, n3, n5, n4], "`", TextType.CODE)
     for i in new_nodes:
         print(i)
+
+    print("\n\n---- split_nodes_image ----\n")
+    # print(split_nodes_image([]))
+
+    img_node1 = TextNode(
+        "This is text with a link ![to boot dev](https://www.boot.dev) and ![to youtube](https://www.youtube.com/@bootdotdev)",
+        TextType.TEXT,
+    )
+
+    img_node2 = TextNode(
+        "![Alt text for boot.dev](https://www.boot.dev) and that's it!",
+        TextType.TEXT,
+    )
+    print(split_nodes_image([img_node1, img_node2]))
+
+    img_node3 = TextNode("![Just alt text](http://andalink.com)", TextType.TEXT)
+    print(split_nodes_image([img_node3]))
+
+    print("\n\n---- no valid image format ----\n")
+    img_node4 = TextNode("![Just alt text(http://andalink.com)", TextType.TEXT)
+    print(split_nodes_image([img_node4]))
+
+    print("\n\n---- no text at all ----\n")
+    img_node5 = TextNode("", TextType.TEXT)
+    print(split_nodes_image([img_node5]))
+    # print(split_nodes_image([]))
 
 
 if __name__ == "__main__":
