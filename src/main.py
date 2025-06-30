@@ -1,6 +1,6 @@
 from textnode import TextType, TextNode
 from htmlnode import LeafNode, ParentNode
-from splitnodes import split_nodes_delimiter, split_nodes_image
+from splitnodes import split_nodes_delimiter, split_nodes_image, text_to_textnodes
 
 
 def main():
@@ -56,6 +56,9 @@ def main():
     print(split_nodes_image([img_node5]))
     # print(split_nodes_image([]))
 
+    print("\n\n ---- text to textnodes babyyy ----")
+    for i in text_to_textnodes("This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"):
+        print(i)
 
 if __name__ == "__main__":
     main()
