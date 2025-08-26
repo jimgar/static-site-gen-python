@@ -1,9 +1,8 @@
-from textnode import TextNode, TextType
+from copy_content import copy_content
 
 
 def main():
-    node = TextNode("This is a text node", TextType.BOLD, "https://www.boot.dev")
-    print(node)
+    copy_content("static", "public")
 
 
 main()
