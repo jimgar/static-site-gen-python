@@ -193,5 +193,3 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Generated site shouldn't be commited
-public/
